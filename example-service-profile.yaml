@@ -1,0 +1,12 @@
+apiVersion: linkerd.io/v1alpha2
+kind: ServiceProfile
+metadata:
+  name: my-service.my-namespace.svc.cluster.local
+spec:
+  routes:
+  - name: My Route Name
+    isRetryable: true # Define it's safe to retry this route
+    timeout: 100ms # Define a timeout for this route
+    condition:
+      method: GET
+      pathRegex: /my/route/path
